@@ -1,4 +1,6 @@
-const abi = [
+const guildAddress = "0x2953399124F0cBB46d2CbACD8A89cF0599974963"
+
+const guildAbi = [
   {
     inputs: [
       { internalType: "string", name: "_name", type: "string" },
@@ -642,4 +644,4 @@ const abi = [
   },
 ]
 
-module.exports = { abi }
+module.exports = { guildAddress, guildAbi }
