@@ -5,7 +5,7 @@ import { useAccount } from "wagmi"
 import badge from "../public/badge.png"
 import styles from "../styles/Profile.module.css"
 import placeholder from "../public/dashed-box.png"
-function Token({ tokenId, contractAddress, unique, abi }) {
+function Token({ tokenId, contractAddress, unique, abi, type }) {
   const [url, setUrl] = useState(null)
   const [name, setName] = useState(null)
   const [owned, setOwned] = useState(false)
@@ -45,8 +45,14 @@ function Token({ tokenId, contractAddress, unique, abi }) {
         console.log(error)
       }
     }
-    if (!unique) {
+    if (type == "guild") {
       getData()
+    } else if (type == "hack") {
+      console.log("TODO")
+      setName("EY Blockchain Hackathon")
+    } else {
+      setUrl("https://badge.eybc.xyz/img/placeholder.png")
+      setName("EY Blockchain Badge")
     }
   }, [url])
 
@@ -60,7 +66,7 @@ function Token({ tokenId, contractAddress, unique, abi }) {
           alt="nft"
           className={styles.gridItem}
         ></Image>
-        EY Blockchain Badge
+        {name}
       </div>
     )
   }

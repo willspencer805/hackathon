@@ -17,6 +17,7 @@ export default function Profile() {
           contractAddress={badgeAddress}
           unique={true}
           abi={badgeAbi}
+          type="badge"
         ></Token>
       </div>
     )
@@ -33,6 +34,7 @@ export default function Profile() {
           contractAddress={hackAddress}
           unique={false}
           abi={hackAbi}
+          type="hack"
         ></Token>
       </div>
     )
@@ -50,6 +52,7 @@ export default function Profile() {
             contractAddress={guildAddress}
             unique={false}
             abi={guildAbi}
+            type="guild"
           ></Token>
         </div>
       )
