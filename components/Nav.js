@@ -30,6 +30,7 @@ export default function Nav() {
               width={50}
               height={50}
               className="float-left"
+              alt="EY Logo"
             />
       <div className="text-black font-bold flex justify-center lg:w-0 lg:flex-1">Hi {name}, welcome to your EY profile</div>
 

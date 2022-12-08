@@ -101,47 +101,99 @@ const TokenMetadata = () => {
   }
 
   return (
-    <>
-      <div className={styles.container}>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label for="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={handleNameChange}
-              placeholder="Name of NFT"
-            />
+    <div className="ml-[200px] mr-[200px]">
+      <table className="w-full">
+        <tr>
+          <td className="col-auto">
+          <div className="flex relative float-left">
+          <div className="bg-yellow-dark rounded-[20px] w-[160px] h-[40px] absolute -top-[20px] left-[25%] pt-[7px] pl-[30px]">Issue an NFT</div>
+            <div className="bg-grey-light w-[330px] h-[310px] rounded">
+              <form onSubmit={handleSubmit}>
+                <div className="mt-[40px] ml-[20px]">
+                  <div className="ml-[5%]">Name</div>
+                  <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={handleNameChange}
+                    placeholder="Name of NFT"
+                    className="bg-white rounded h-[25px] mt-[7px] pl-[5px] text-sm placeholder:text-xs"
+                  />
+                </div>
+                <div className="mt-[20px] ml-[20px]">
+                <div className="ml-[5%]">Description</div>
+                  <input
+                    type="text"
+                    id="description"
+                    value={description}
+                    onChange={handleDescriptionChange}
+                    placeholder="Description of NFT"
+                    className="bg-white rounded h-[25px] mt-[7px] pl-[5px] text-sm placeholder:text-xs"
+                  />
+                </div>
+                <div className="mt-[20px] ml-[20px]">
+                  <div className="ml-[5%]">Art</div>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    id="image"
+                    onChange={handleFileChange}
+                    className="bg-white rounded h-[25px] mt-[7px]"
+                  />
+                </div>
+                <div className="ml-auto">
+                  <button className="bg-blue-medium rounded text-white text-sm float-right mt-[16px] mr-[15px] w-[65px] h-[30px]" type="submit">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+        </div>
+          </td>
+          <td className="col-auto">
+          <div className="flex relative float-right">
+          <div className="bg-yellow-dark rounded-[20px] w-[160px] h-[40px] absolute -top-[20px] left-[25%] pt-[7px] pl-[30px]">Revoke an NFT</div>
+          <div className="bg-grey-light w-[330px] h-[310px] rounded">
+            <form>
+              <div className="mt-[40px] ml-[20px]">
+                <div className="ml-[5%]">Name</div>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Name of NFT"
+                  className="bg-white rounded h-[25px] mt-[7px] pl-[5px] text-sm placeholder:text-xs"
+                />
+              </div>
+              <div className="mt-[20px] ml-[20px]">
+              <div className="ml-[5%]">Profile</div>
+                <input
+                  type="text"
+                  id="description"
+                  placeholder="Email of user"
+                  className="bg-white rounded h-[25px] mt-[7px] pl-[5px] text-sm placeholder:text-xs"
+                />
+              </div>
+              <div className="mt-[20px] ml-[20px]">
+                <div className="ml-[5%]">Group</div>
+                  <input
+                    type="text"
+                    id="description"
+                    placeholder="Distribution Group"
+                    className="bg-white rounded h-[25px] mt-[7px] pl-[5px] text-sm placeholder:text-xs"
+                  />
+              </div>
+              <div className="ml-auto">
+                <button className="bg-blue-medium rounded text-white text-sm float-right mt-[16px] mr-[15px] w-[65px] h-[30px]" type="submit">
+                  Submit
+                </button>
+              </div>
+            </form>
           </div>
-          <div>
-            <label for="description">Description:</label>
-            <input
-              type="text"
-              id="description"
-              value={description}
-              onChange={handleDescriptionChange}
-              placeholder="Description of NFT"
-            />
-          </div>
-          <div>
-            <label for="image">Image:</label>
-            <input
-              type="file"
-              accept="image/*"
-              id="image"
-              onChange={handleFileChange}
-            />
-          </div>
-          <div className={styles.buttonDiv}>
-            <button className={styles.submitButton} type="submit">
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-      <div className={styles.container}></div>
-    </>
+        </div>
+          </td>
+        </tr>
+      </table>
+    </div>
   )
 }
 
