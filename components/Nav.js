@@ -23,8 +23,14 @@ export default function Nav() {
   })
 
   return (
-    <div className="bg-yellow-light h-[69px] mb-[20px] flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
-      <Image src="/ey_logo.png" width={50} height={50} className="float-left" />
+    <div className="bg-yellow-light h-[69px] mb-[50px] flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
+      <Image
+        src="/ey_logo.png"
+        width={50}
+        height={50}
+        className="float-left"
+        alt="EY Logo"
+      />
       <div className="text-black font-bold flex justify-center lg:w-0 lg:flex-1">
         Hi {name}, welcome to your EY profile
       </div>

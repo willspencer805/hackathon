@@ -51,7 +51,6 @@ function CSVFileInput() {
   return (
     <>
       <input type="file" onChange={handleFileChange} />
-      {data ? <pre>{data}</pre> : <p>No data</p>}
     </>
   )
 }

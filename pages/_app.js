@@ -3,10 +3,11 @@ import "@rainbow-me/rainbowkit/styles.css"
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi"
 import { alchemyProvider } from "wagmi/providers/alchemy"
+import { infuraProvider } from "wagmi/providers/infura"
 function MyApp({ Component, pageProps }) {
   const { chains, provider } = configureChains(
     [chain.polygon, chain.polygonMumbai],
-    [alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID })]
+    [infuraProvider({ apiKey: process.env.NEXT_PUBLIC_INFURA_KEY })]
   )
 
   const { connectors } = getDefaultWallets({
