@@ -11,7 +11,8 @@ module.exports = {
           light: "#FFFBD9"
         },
         grey: {
-          light: "#D9D9D9"
+          light: "#D9D9D9",
+          medium: "#A1A1AA"
         }
       }
     },

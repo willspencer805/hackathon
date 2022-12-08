@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import Router from "next/router"
 import { useContractRead } from "wagmi"
 import { useAccount } from "wagmi"
 import badge from "../public/badge.png"
@@ -7,6 +8,7 @@ import styles from "../styles/Profile.module.css"
 import placeholder from "../public/dashed-box.png"
 import hack from "../public/hackathon.png"
 function Token({ tokenId, contractAddress, unique, abi, type }) {
+  const [token, setToken] = useState(null)
   const [url, setUrl] = useState(null)
   const [name, setName] = useState(null)
   const [owned, setOwned] = useState(false)
@@ -49,6 +51,7 @@ function Token({ tokenId, contractAddress, unique, abi, type }) {
       try {
         const response = await fetch(endpoint, options)
         const data = await response.json()
+        setToken(data)
         setUrl(data.image)
         setName(data.name)
       } catch (error) {
@@ -66,6 +69,16 @@ function Token({ tokenId, contractAddress, unique, abi, type }) {
       setName("EY Blockchain Badge")
     }
   }, [url])
+
+  const viewNFT = () => {
+    Router.push(
+      {
+        pathname: "/nft",
+        query: { data: JSON.stringify({ nft: token }) },
+      },
+      "/nft"
+    )
+  }
 
   if (type == "hack") {
     return (
@@ -101,7 +114,7 @@ function Token({ tokenId, contractAddress, unique, abi, type }) {
     <>
       {owned ? (
         url ? (
-          <div>
+          <div onClick={viewNFT}>
             <Image
               src={url}
               width={300}
