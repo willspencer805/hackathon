@@ -1,6 +1,10 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import { useState } from "react"
-import { useAccount } from "wagmi"
+import { useAccount } from "wagmi";
+import Image from "next/image";
+
+import { CustomConnectButton } from "./CustomConnectButton";
+
 
 export default function Nav() {
   const [name, setName] = useState(null)
@@ -20,26 +24,17 @@ export default function Nav() {
   })
 
   return (
-    <div className="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
-      <div className="flex justify-start lg:w-0 lg:flex-1">Hello {name}!</div>
+    <div className="bg-yellow-light h-[69px] mb-[50px] flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
+      <Image
+              src="/ey_logo.png"
+              width={50}
+              height={50}
+              className="float-left"
+            />
+      <div className="text-black font-bold flex justify-center lg:w-0 lg:flex-1">Hi {name}, welcome to your EY profile</div>
 
-      <nav className="hidden md:flex space-x-10">
-        <a
-          href="/"
-          className="text-base font-medium text-gray-500 hover:text-gray-900"
-        >
-          Profile
-        </a>
-        <a
-          href="/claim"
-          className="text-base font-medium text-gray-500 hover:text-gray-900"
-        >
-          Claim
-        </a>
-      </nav>
-
-      <div className="md:flex items-center justify-end md:flex-1 lg:w-0 w-full">
-        <ConnectButton />
+      <div className="md:flex items-center justify-end lg:w-0 w-full">
+        <CustomConnectButton/>
       </div>
     </div>
   )
