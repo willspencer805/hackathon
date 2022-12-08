@@ -5,7 +5,7 @@ import { chain, configureChains, createClient, WagmiConfig } from "wagmi"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 function MyApp({ Component, pageProps }) {
   const { chains, provider } = configureChains(
-    [chain.polygon],
+    [chain.polygon, chain.polygonMumbai],
     [alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID })]
   )
 
