@@ -15,29 +15,31 @@ const getByAddress = nc({
   const client = await connectToMongo()
   const connectedAddress = req.query.address
 
-  const pipeline = [
-    `{
-      '$search': {
-        'index': 'address',
-        'text': {
-          'query': '${connectedAddress}',
-          'path': {
-            'wildcard': '*'
-          }
-        }
-      }
-    }`,
-  ]
+  // const pipeline = [
+  //   {
+  //     $search: {
+  //       index: "address",
+  //       text: {
+  //         query: `${connectedAddress}`,
+  //         path: {
+  //           wildcard: "*",
+  //         },
+  //       },
+  //     },
+  //   },
+  // ]
   console.log(connectedAddress)
   try {
     console.log("querying")
     const result = await client
       .db("guild")
       .collection("master")
-      .aggregate(pipeline)
+      .findOne({ address: `${connectedAddress}` })
 
+    console.log("Retrieved data for address")
+    console.log(result)
     client.close()
-    return result
+    res.send(JSON.stringify(result.name))
   } catch (err) {
     console.error(err)
     client.close()

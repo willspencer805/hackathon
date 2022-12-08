@@ -9,16 +9,16 @@ module.exports = {
       colors: {
         yellow: {
           light: "#FFFBD9",
-          dark: "#FFE400"
+          dark: "#FFE400",
         },
         grey: {
           light: "#D9D9D9",
-          medium: "#A1A1AA"
+          medium: "#A1A1AA",
         },
-        blue:{
-          medium: "#3b82f6"
-        }
-      }
+        blue: {
+          medium: "#3b82f6",
+        },
+      },
     },
   },
   plugins: [],
