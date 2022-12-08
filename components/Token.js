@@ -17,20 +17,11 @@ function Token({ tokenId, contractAddress, unique, abi, type }) {
     "https://api.opensea.io/api/v2/metadata/matic/0x2953399124F0cBB46d2CbACD8A89cF0599974963/" +
     tokenId
 
-  let chainId
-  if (type == "hack") {
-    chainId = 80001
-  } else {
-    chainId = 137
-  }
-
   const contractRead = useContractRead({
     address: contractAddress,
     abi: abi,
     functionName: "balanceOf",
-    // chainId: type == "hack" ? 80001 : 137,
-    // chainId: 137,
-    chainId: chainId,
+    chainId: type == "hack" ? 80001 : 137,
     args: unique ? [address] : [address, tokenId],
     onSuccess(data) {
       if (data > 0) {
@@ -80,7 +71,7 @@ function Token({ tokenId, contractAddress, unique, abi, type }) {
     )
   }
 
-  if (type == "hack") {
+  if (type == "hack" && owned) {
     return (
       <div>
         <Image
