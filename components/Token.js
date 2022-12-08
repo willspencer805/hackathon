@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
+import Router from "next/router"
 import { useContractRead } from "wagmi"
 import { useAccount } from "wagmi"
 import { abi } from "../utils/guildAbi"
 import styles from "../styles/Profile.module.css"
 import placeholder from "../public/dashed-box.png"
+
+
 function Token({ tokenId }) {
+  const [token, setToken] = useState(null)
   const [url, setUrl] = useState(null)
   const [name, setName] = useState(null)
   const [owned, setOwned] = useState(false)
@@ -38,17 +42,25 @@ function Token({ tokenId }) {
       }
       const response = await fetch(endpoint, options)
       const data = await response.json()
+      setToken(data);
       setUrl(data.image)
       setName(data.name)
     }
     getData()
   }, [url])
 
+  const viewNFT = () => {
+    Router.push({ 
+      pathname: "/nft", 
+      query: {data: JSON.stringify({nft: token})}
+    }, '/nft')
+  }
+
   return (
     <>
       {owned ? (
         url ? (
-          <div>
+          <div onClick={viewNFT}>
             <Image
               src={url}
               width={300}
