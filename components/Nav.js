@@ -1,10 +1,9 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import { useState } from "react"
-import { useAccount } from "wagmi";
-import Image from "next/image";
+import { useAccount } from "wagmi"
+import Image from "next/image"
 
-import { CustomConnectButton } from "./CustomConnectButton";
-
+import { CustomConnectButton } from "./CustomConnectButton"
 
 export default function Nav() {
   const [name, setName] = useState(null)
@@ -18,23 +17,20 @@ export default function Nav() {
         },
       }
       const response = await fetch(endpoint, options)
-      const data = await response.json()
-      setName(data.name)
+      const name = await response.json()
+      setName(name.split(" ").shift())
     },
   })
 
   return (
     <div className="bg-yellow-light h-[69px] mb-[20px] flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
-      <Image
-              src="/ey_logo.png"
-              width={50}
-              height={50}
-              className="float-left"
-            />
-      <div className="text-black font-bold flex justify-center lg:w-0 lg:flex-1">Hi {name}, welcome to your EY profile</div>
+      <Image src="/ey_logo.png" width={50} height={50} className="float-left" />
+      <div className="text-black font-bold flex justify-center lg:w-0 lg:flex-1">
+        Hi {name}, welcome to your EY profile
+      </div>
 
       <div className="md:flex items-center justify-end lg:w-0 w-full">
-        <CustomConnectButton/>
+        <CustomConnectButton />
       </div>
     </div>
   )
