@@ -1,6 +1,7 @@
 import React from "react"
 const https = require("https")
 import axios from "axios"
+import styles from "../styles/Profile.module.css"
 
 const TokenMetadata = () => {
   const [name, setName] = React.useState("")
@@ -96,29 +97,51 @@ const TokenMetadata = () => {
         amount: 1,
       }),
     }
-    await fetch(nftEndpoint, nftOptions)
+    // await fetch(nftEndpoint, nftOptions)
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input type="text" value={name} onChange={handleNameChange} />
-      </label>
-      <label>
-        Description:
-        <input
-          type="text"
-          value={description}
-          onChange={handleDescriptionChange}
-        />
-      </label>
-      <label>
-        Image:
-        <input type="file" accept="image/*" onChange={handleFileChange} />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+    <>
+      <div className={styles.container}>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={handleNameChange}
+              placeholder="Name of NFT"
+            />
+          </div>
+          <div>
+            <label for="description">Description:</label>
+            <input
+              type="text"
+              id="description"
+              value={description}
+              onChange={handleDescriptionChange}
+              placeholder="Description of NFT"
+            />
+          </div>
+          <div>
+            <label for="image">Image:</label>
+            <input
+              type="file"
+              accept="image/*"
+              id="image"
+              onChange={handleFileChange}
+            />
+          </div>
+          <div className={styles.buttonDiv}>
+            <button className={styles.submitButton} type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <div className={styles.container}></div>
+    </>
   )
 }
 
