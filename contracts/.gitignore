@@ -1,6 +1,0 @@
-.env*
-artifacts/
-deployments/
-cache/
-node_modules/
-*.log
