@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import { useContractRead } from "wagmi"
 import { useAccount } from "wagmi"
-import { abi } from "../utils/guildAbi"
+import badge from "../public/badge.png"
 import styles from "../styles/Profile.module.css"
 import placeholder from "../public/dashed-box.png"
-function Token({ tokenId }) {
+function Token({ tokenId, contractAddress, unique, abi }) {
   const [url, setUrl] = useState(null)
   const [name, setName] = useState(null)
   const [owned, setOwned] = useState(false)
@@ -15,11 +15,11 @@ function Token({ tokenId }) {
     tokenId
 
   const contractRead = useContractRead({
-    address: process.env.NEXT_PUBLIC_GUILD_CONTRACT,
+    address: contractAddress,
     abi: abi,
     functionName: "balanceOf",
     chainId: 137,
-    args: [address, tokenId],
+    args: unique ? [address] : [address, tokenId],
     onSuccess(data) {
       if (data > 0) {
         setOwned(true)
@@ -36,13 +36,34 @@ function Token({ tokenId }) {
           "Content-Type": "application/json",
         },
       }
-      const response = await fetch(endpoint, options)
-      const data = await response.json()
-      setUrl(data.image)
-      setName(data.name)
+      try {
+        const response = await fetch(endpoint, options)
+        const data = await response.json()
+        setUrl(data.image)
+        setName(data.name)
+      } catch (error) {
+        console.log(error)
+      }
     }
-    getData()
+    if (!unique) {
+      getData()
+    }
   }, [url])
+
+  if (unique && owned) {
+    return (
+      <div>
+        <Image
+          src={badge}
+          width={300}
+          height={300}
+          alt="nft"
+          className={styles.gridItem}
+        ></Image>
+        EY Blockchain Badge
+      </div>
+    )
+  }
 
   return (
     <>
