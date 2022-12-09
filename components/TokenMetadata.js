@@ -83,7 +83,11 @@ const TokenMetadata = () => {
     // TODO!!!!!!
     const addresses = [
       "0xA42Ca9055c8875972aDC1c7AB9F84783594f2e8B",
-      "0xCAEe1AC3c58FFC6dB49ac963f73bbb09AF623bE7",
+      "0x11D15C3DC69018B6e03c061B93bB9295eEc50De2",
+      "0xa2b914d2D6CD76dE78B786Da667b343C996B0dC4",
+      "0x39DfC9AC7c7B103264d3D2f2E446eA9DA9fa78A3",
+      "0x68e421b95ecc2f995f8a14768bfc5beb57392db9",
+      "0x1dbbb16a086340706be966886059dfabce5892a2",
     ]
 
     // finally, mint the nft off the contract
@@ -99,7 +103,7 @@ const TokenMetadata = () => {
         amount: 1,
       }),
     }
-    // await fetch(nftEndpoint, nftOptions)
+    await fetch(nftEndpoint, nftOptions)
     router.push("/success")
   }
 
