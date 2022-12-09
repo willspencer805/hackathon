@@ -5,7 +5,6 @@ import { useContractRead } from "wagmi"
 import { useAccount } from "wagmi"
 import badge from "../public/badge.png"
 import styles from "../styles/Profile.module.css"
-import placeholder from "../public/dashed-box.png"
 import hack from "../public/hackathon.png"
 function Token({ tokenId, contractAddress, unique, abi, type }) {
   const [token, setToken] = useState(null)
@@ -118,12 +117,7 @@ function Token({ tokenId, contractAddress, unique, abi, type }) {
         ) : (
           <>Loading</>
         )
-      ) : (
-        <div>
-          <Image src={placeholder} width={300} height={300} alt="nft"></Image>
-          {name}
-        </div>
-      )}
+      ) : null}
     </>
   )
 }

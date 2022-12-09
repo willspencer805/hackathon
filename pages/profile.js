@@ -11,15 +11,13 @@ export default function Profile() {
   function showBadgeTokens() {
     let arr = []
     arr.push(
-      <div key="badge">
-        <Token
-          tokenId={null}
-          contractAddress={badgeAddress}
-          unique={true}
-          abi={badgeAbi}
-          type="badge"
-        ></Token>
-      </div>
+      <Token
+        tokenId={null}
+        contractAddress={badgeAddress}
+        unique={true}
+        abi={badgeAbi}
+        type="badge"
+      ></Token>
     )
 
     return arr
@@ -28,15 +26,13 @@ export default function Profile() {
   function showHackTokens() {
     let arr = []
     arr.push(
-      <div key="badge">
-        <Token
-          tokenId={1}
-          contractAddress={hackAddress}
-          unique={false}
-          abi={hackAbi}
-          type="hack"
-        ></Token>
-      </div>
+      <Token
+        tokenId={1}
+        contractAddress={hackAddress}
+        unique={false}
+        abi={hackAbi}
+        type="hack"
+      ></Token>
     )
 
     return arr
@@ -46,15 +42,13 @@ export default function Profile() {
     let arr = []
     tokenIds.map((id) => {
       arr.push(
-        <div key={id}>
-          <Token
-            tokenId={id}
-            contractAddress={guildAddress}
-            unique={false}
-            abi={guildAbi}
-            type="guild"
-          ></Token>
-        </div>
+        <Token
+          tokenId={id}
+          contractAddress={guildAddress}
+          unique={false}
+          abi={guildAbi}
+          type="guild"
+        ></Token>
       )
     })
     return arr
