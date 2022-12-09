@@ -7,10 +7,10 @@ import Router from "next/router"
 import { CustomConnectButton } from "./CustomConnectButton"
 
 export default function Nav() {
-  const [name, setName] = useState("Please connect your wallet")
+  const [name, setName] = useState(null)
   const [isAdmin, setIsAdmin] = useState(false)
 
-  const account = useAccount({
+  const { isConnected } = useAccount({
     async onConnect({ address }) {
       const endpoint = "../api/getByAddress/?address=" + address.toString()
       const options = {
@@ -61,7 +61,9 @@ export default function Nav() {
         alt="EY Logo"
       />
       <div className="text-black font-bold flex justify-center lg:w-0 lg:flex-1">
-        Hi {name}, welcome to your EY profile
+        {isConnected
+          ? `Hi ${name}, welcome to your EY profile`
+          : "Please connect your wallet"}
       </div>
       {isAdmin && (
         <div>
