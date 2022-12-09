@@ -69,7 +69,7 @@ export default function Profile() {
           <input
             className="ml-2 h-[37px] w-[258px] text-base bg-transparent border-solid border-[2px] border-grey-light p-2
               focus:outline-none
-              placeholder:text-base placeholder:text-black placeholder:opacity-60 placeholder:ml-[2px]"
+              placeholder:text-base placeholder:text-white placeholder:opacity-60 placeholder:ml-[2px]"
             placeholder="Search my Wallet"
           />
         </div>
