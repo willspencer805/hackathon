@@ -102,7 +102,7 @@ const TokenMetadata = () => {
 
   return (
     <div className="ml-[200px] mr-[200px]">
-      <table className="w-full">
+      <table className="w-full text-black">
         <tr>
           <td className="col-auto">
           <div className="flex relative float-left">
