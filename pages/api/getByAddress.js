@@ -14,7 +14,7 @@ const getByAddress = nc({
 }).get(async (req, res) => {
   const client = await connectToMongo()
   const connectedAddress = req.query.address
-
+  const tokenType = req.query.type || 'guild'
   // const pipeline = [
   //   {
   //     $search: {
@@ -30,9 +30,9 @@ const getByAddress = nc({
   // ]
   console.log(connectedAddress)
   try {
-    console.log("querying")
+    console.log("Querying for token by address")
     const result = await client
-      .db("guild")
+      .db(tokenType)
       .collection("master")
       .findOne({ address: `${connectedAddress}` })
 
