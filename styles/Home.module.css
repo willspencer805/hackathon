@@ -109,6 +109,15 @@
   margin-left: 0.5rem;
 }
 
+.return {
+  border-radius: 25px;
+  text-align: center;
+  margin: 0 auto;
+  background: #3b82f6;
+  margin-top: 50px;
+  width: 200px;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

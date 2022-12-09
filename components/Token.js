@@ -115,7 +115,7 @@ function Token({ tokenId, contractAddress, unique, abi, type }) {
             {name}
           </div>
         ) : (
-          <>Loading</>
+          <div>Loading...</div>
         )
       ) : null}
     </>
