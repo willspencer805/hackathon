@@ -70,8 +70,8 @@ export default function Profile() {
       </div>
       <div className="m-10">
         <div className={styles.grid}>
-          {showGuildTokens()}
           {showBadgeTokens()}
+          {showGuildTokens()}
           {showHackTokens()}
         </div>
       </div>
