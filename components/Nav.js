@@ -7,8 +7,8 @@ import Router from "next/router"
 import { CustomConnectButton } from "./CustomConnectButton"
 
 export default function Nav() {
-  const [name, setName] = useState(null)
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [name, setName] = useState("Please connect your wallet")
+  const [isAdmin, setIsAdmin] = useState(false)
 
   const account = useAccount({
     async onConnect({ address }) {
@@ -27,15 +27,15 @@ export default function Nav() {
 
   useEffect(() => {
     console.log(name)
-    if(name == "Will") {
-      setIsAdmin(true);
+    if (name == "Will") {
+      setIsAdmin(true)
     }
   })
 
   const goToAdmin = () => {
     Router.push(
       {
-        pathname: "/claim"
+        pathname: "/claim",
       },
       "/claim"
     )
@@ -44,12 +44,11 @@ export default function Nav() {
   const goHome = () => {
     Router.push(
       {
-        pathname: "/"
+        pathname: "/",
       },
       "/"
     )
   }
-
 
   return (
     <div className="bg-grey-light h-[69px] mb-[50px] flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
@@ -64,12 +63,17 @@ export default function Nav() {
       <div className="text-black font-bold flex justify-center lg:w-0 lg:flex-1">
         Hi {name}, welcome to your EY profile
       </div>
-      {isAdmin && 
+      {isAdmin && (
         <div>
-          <button onClick={goToAdmin} className="bg-yellow-dark rounded-[50px] w-[100px] h-[36px] text-sm text-black mr-[20px]">Admin Page</button>
+          <button
+            onClick={goToAdmin}
+            className="bg-yellow-dark rounded-[50px] w-[100px] h-[36px] text-sm text-black mr-[20px]"
+          >
+            Admin Page
+          </button>
         </div>
-      }
-      
+      )}
+
       <div className="md:flex items-center justify-end lg:w-0 w-full">
         <CustomConnectButton />
       </div>
