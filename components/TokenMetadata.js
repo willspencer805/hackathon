@@ -65,7 +65,7 @@ const TokenMetadata = () => {
 
     // pin the json object to ipfs
     try {
-      const res = await axios.post(
+      const res = axios.post(
         "https://ipfs.infura.io:5001/api/v0/add",
         jsonForm,
         {
@@ -103,7 +103,7 @@ const TokenMetadata = () => {
         amount: 1,
       }),
     }
-    await fetch(nftEndpoint, nftOptions)
+    fetch(nftEndpoint, nftOptions)
     router.push("/success")
   }
 

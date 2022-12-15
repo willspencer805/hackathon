@@ -37,10 +37,10 @@ const mintToken = nc({
   )
 
   try {
+    console.log("Minting token...")
     const tx = await contract.mintBatch(addresses, tokenId, amount)
     console.log(`https://mumbai.polygonscan.com/tx/${tx.hash}`)
-    receipt = await tx.wait()
-    return receipt
+    // const receipt = await tx.wait()
   } catch (error) {
     throw error
   }
